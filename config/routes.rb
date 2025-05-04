@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "posts/index"
+  get "posts/new"
+  get "posts/create"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,4 +15,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "posts#index"
+  devise_for :users
+  resources :posts, only: [ :index, :new, :create ]
 end
